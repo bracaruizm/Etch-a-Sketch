@@ -1,4 +1,4 @@
-16x16 grid
+## 16x16 grid
 
 A simple exercise from TheOdinProject. It is a grid that allows drawing by clicking on each cell.
 

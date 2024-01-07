@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  border: 1px solid #333;
+  width: 960px;
+  height: 960px;
+}
+
+.grid-item {
+  /* width: calc(100% / 16 - 1px);
+  height: calc(100% / 16 - 1px); */
+  box-sizing: border-box;
+  background-color: #ddd;
+  border: 1px solid #fff;
+}
+
+.grid-item:hover {
+background-color: #ffcccb;
+}

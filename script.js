@@ -44,13 +44,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function resetGrid() {
     // Prompt the user for the number of squares per side
-    let newSize = prompt("Enter the number of squares per side (max 100):");
+    let newSize = prompt(
+      "Enter the number of squares per side (max 100):\nIngresa el numero de cuadrados por lado (máx 100):"
+    );
 
     // Validations...
     newSize = parseInt(newSize);
 
     if (isNaN(newSize) || newSize <= 0) {
-      alert("Please enter a valid number greater than 0!");
+      alert(
+        "Please enter a valid number greater than 0!\nPor favor, ingrese un número válido más grande que 0."
+      );
       return;
     }
 

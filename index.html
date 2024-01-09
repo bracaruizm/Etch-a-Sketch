@@ -5,11 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>16x16 grid</title>
     <link rel="stylesheet" href="./styles.css">
-    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <link rel="icon" type="image/x-icon" href="./media/favicon.png">
 </head>
 <body>
-    <button id="resetButton">Reset Grid!</button>
-    <div id="grid-container"></div>
-    <script src="./script.js"></script>
+    <div class="element-center">
+        <div class="element-left">
+            <div class="text-intro">
+                <p id="text-intro-big">Use the right-click button to remove the color!<br>¡Use el botón derecho para borrar un color!</p>
+                <p id="text-intro-small">Or just double click to remove the color (smartphone-friendly 🤠)<br>O simplemente haz doble click para borrar el color (útil para smartphones 🤠)  </p>
+            </div>
+            <div class="btn-group">
+                <button id="resetButton">Reset Grid! 🔄<br>Reiniciar grilla!</button>
+                <button id="blackColor">Black color🖌️<br>Color negro</button>
+                <button id="multiColor">Multicolor🌈</button>
+            </div>
+        </div>
+        <div id="grid-container"></div>
+    </div>
+    <div class="footer">
+        <div class="footer-text">
+        <p id="credits-text">2024 Matías Enzo Bracamonte Ruiz</p>
+        <img id="github-icon" src="./media/github-icon.png" alt="https://github.com/bracaruizm/Etch-a-Sketch/">
+        </div>
+    </div>
+</div>
+<script src="./script.js"></script>
 </body>
 </html>

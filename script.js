@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const gridContainer = document.getElementById("grid-container");
   const resetButton = document.getElementById("resetButton");
+  const blackColorButton = document.getElementById("blackColor");
+  const multiColorButton = document.getElementById("multiColor");
+  let isBlackColorMode = true;
+  let isMultiColorMode = false;
 
   resetButton.addEventListener("click", function () {
     resetGrid();
@@ -9,43 +13,47 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial grid creation
   createGrid(16);
 
-  // Paint black when clicking
-  function paintBlackWhenClicking(gridItem) {
-    let isClicked = false;
-    isClicked = gridItem.addEventListener("click", function () {
-      gridItem.style.backgroundColor = "black";
+  function eraseColor(gridItem) {
+    ["contextmenu", "dblclick"].forEach((element) => {
+      gridItem.addEventListener(element, function () {
+        gridItem.style.backgroundColor = "#ddd";
+        event.preventDefault();
+      });
     });
   }
 
-  // // Create a multicolor effect when hovering over the grids.
-  // function multiColorHoverEffect(gridItem) {
-  //   if (isClicked) {
-  //     // Add event listeners for hover effect
-  //     gridItem.addEventListener("mouseenter", function () {
-  //       gridItem.style.backgroundColor = getRandomColor();
-  //     });
+  blackColorButton.addEventListener("click", function () {
+    isBlackColorMode = !isBlackColorMode;
+    isMultiColorMode = false; // Turn off multicolor mode when switching to black color mode
+  });
 
-  //     gridItem.addEventListener("mouseleave", function () {
-  //       gridItem.style.backgroundColor = "";
-  //     });
-  //   }
-  // }
+  multiColorButton.addEventListener("click", function () {
+    isMultiColorMode = !isMultiColorMode;
+    isBlackColorMode = false; // Turn off black color mode when switching to multicolor mode
+  });
+
+  function paintWhenClicked(gridItem) {
+    gridItem.addEventListener("click", function () {
+      if (isBlackColorMode) {
+        gridItem.style.backgroundColor = "black";
+      } else if (isMultiColorMode) {
+        gridItem.style.backgroundColor = getRandomColor();
+      }
+    });
+  }
 
   function resetGrid() {
     // Prompt the user for the number of squares per side
     let newSize = prompt("Enter the number of squares per side (max 100):");
 
-    // Validations:
-    // Parse to int
+    // Validations...
     newSize = parseInt(newSize);
 
-    // Validate the user input
     if (isNaN(newSize) || newSize <= 0) {
       alert("Please enter a valid number greater than 0!");
       return;
     }
 
-    // Limit the size to a maximum of 100;
     newSize = Math.min(newSize, 100);
 
     // Remove existing grid
@@ -57,29 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
     createGrid(newSize);
   }
 
-  // Create a 16x16 grid
   function createGrid(size) {
-    // Set up grid styles
-    // gridContainer.style.width = "960px";
-    // gridContainer.style.height = "960px";
-
-    // Create a size x size grid (default value is 16x16)
     for (let i = 0; i < size * size; i++) {
       const gridItem = document.createElement("div");
       gridItem.classList.add("grid-item");
       let itemSize = `calc(100% / ${size} - 1px)`;
       gridItem.style.width = itemSize;
       gridItem.style.height = itemSize;
-
-      paintBlackWhenClicking(gridItem);
-
+      eraseColor(gridItem);
+      paintWhenClicked(gridItem);
       gridContainer.appendChild(gridItem);
     }
   }
 
-  // Helper function to get a random color
   function getRandomColor() {
-    const characters_hex = "0123456789ABCDEF"; //16 characters
+    const characters_hex = "0123456789ABCDEF";
     let color = "#";
     for (let i = 0; i < 6; i++) {
       color += characters_hex[Math.floor(Math.random() * 16)];

@@ -1,9 +1,17 @@
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
   margin: 0;
+  height: 100vh;
+}
+
+.element-center {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+
 }
 
 #grid-container {
@@ -11,8 +19,8 @@ body {
   flex-wrap: wrap;
   gap: 1px;
   border: 1px solid #333;
-  width: 960px;
-  height: 960px;
+  width: 550px;
+  height: 550px;
 }
 
 .grid-item {
@@ -21,8 +29,101 @@ body {
   box-sizing: border-box;
   background-color: #ddd;
   border: 1px solid #fff;
+  cursor: all-scroll;
 }
 
 .grid-item:hover {
 background-color: #ffcccb;
 }
+
+.element-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.element-left.btn-group {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 20px; 
+}
+
+.element-left .btn-group p {
+  display: block; 
+}
+
+.element-left .text-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0%;
+  margin-bottom: 10px;
+}
+
+.element-left .text-intro p#text-intro-big {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 8px;
+}
+
+.element-left .text-intro p#text-intro-small {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 0%;
+}
+.element-left .btn-group button {
+  border: 1px "black"; /* Green border */
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  text-shadow:
+  3px 3px 2px #000;
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  margin: 10px;
+  height: 90px;
+  cursor: pointer; /* Pointer/hand icon */
+  width: 100%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.element-left .btn-group #resetButton {
+  background-color: #a8a8a8;
+}
+
+.element-left .btn-group #blackColor {
+  color: white;
+  background-color: #000;
+}
+
+.element-left .btn-group #multiColor {
+  background-color: #ffb6b6;
+}
+
+.footer {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #cecece;
+  height: 35px;
+}
+
+.footer .footer-text {
+  text-align: center;
+}
+.footer #github-icon {
+  size: 10px;
+}
+
+/* .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+} */

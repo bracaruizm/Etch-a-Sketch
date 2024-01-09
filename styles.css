@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-top: 10px;
 
 }
@@ -19,8 +19,8 @@ body {
   flex-wrap: wrap;
   gap: 1px;
   border: 1px solid #333;
-  width: 550px;
-  height: 550px;
+  width: 545px;
+  height: 545px;
 }
 
 .grid-item {
@@ -46,6 +46,14 @@ background-color: #ffcccb;
   align-items: center;
   flex-direction: column;
   margin-right: 20px; 
+}
+
+.btn-group button:hover{
+  filter:brightness(1.2);
+}
+
+.btn-group #blackColor:hover{
+  filter:brightness(2);
 }
 
 .element-left .btn-group p {
@@ -105,25 +113,27 @@ background-color: #ffcccb;
 .footer {
   display: flex;
   flex-direction:row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: #cecece;
-  height: 35px;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 46px;
 }
 
-.footer .footer-text {
+.footer #credits-text {
   text-align: center;
-}
-.footer #github-icon {
-  size: 10px;
 }
 
-/* .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
-} */
+#github-icon {
+  display: flex;
+  align-items: center;
+  max-width: 40px;
+  max-height: auto;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+#github-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.4);
+}
